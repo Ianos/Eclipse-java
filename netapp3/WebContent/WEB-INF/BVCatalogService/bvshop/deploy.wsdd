@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from BVCatalogService WSDL service -->
+
+  <service name="BVCatalog" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://bvshop"/>
+      <parameter name="wsdlServiceElement" value="BVCatalogService"/>
+      <parameter name="schemaQualified" value="http://bvshop,http://xml.apache.org/xml-soap"/>
+      <parameter name="wsdlServicePort" value="BVCatalog"/>
+      <parameter name="className" value="bvshop.BVCatalog"/>
+      <parameter name="wsdlPortType" value="BVCatalog"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://bvshop" name="addV" qname="operNS:addV" soapAction="">
+        <parameter xmlns:pns="http://bvshop" xmlns:tns="http://bvshop" qname="pns:vObj" type="tns:VehicleBean"/>
+      </operation>
+      <operation xmlns:operNS="http://bvshop" xmlns:retNS="http://bvshop" xmlns:rtns="http://bvshop" name="getVehicleBean" qname="operNS:getVehicleBean" returnQName="retNS:getVehicleBeanReturn" returnType="rtns:VehicleBean" soapAction="">
+        <parameter xmlns:pns="http://bvshop" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:model" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://bvshop" xmlns:retNS="http://bvshop" xmlns:rtns="http://xml.apache.org/xml-soap" name="listV" qname="operNS:listV" returnQName="retNS:listVReturn" returnType="rtns:Map" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="listV addV getVehicleBean"/>
+
+      <typeMapping xmlns:ns="http://bvshop" qname="ns:VehicleBean" type="java:bvshop.VehicleBean" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

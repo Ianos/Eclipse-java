@@ -1,0 +1,34 @@
+<html>
+
+<head>
+	<title>My Title</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="css/mycss.css" />
+
+	<script type="text/javascript">
+
+	function show( link )
+	{
+		document.getElementById( 'frame' ).src = link;
+	}
+
+	</script>
+</head>
+
+<body onLoad="show('page3.html')">
+	<div id="title">
+		This is the title
+	</div>
+	<div id="menu">
+		<ul>
+			<li><a href="javascript:show('page4.html')">Welcome</a></li>
+			<li><a href="javascript:show('aasodfajksdhfjksdf')">Exam(s)</a></li>
+			<li><a href="javascript:show('page6.html')">Contact</a></li>
+		</ul>
+	</div>
+	<div>
+		<iframe id="frame"></iframe>
+	</div>
+</body>
+</html>
+

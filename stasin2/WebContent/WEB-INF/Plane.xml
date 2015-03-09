@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- REFERENCE TO THE STYLESHEET: -->
+<?xml-stylesheet href="TPresentor.xsl" type="text/xsl"?>
+<vehicles>
+<vehicle year="1996" make="Aeritalia" model="Boeing">
+<mileage>36500</mileage>
+<color>black</color>
+<price>$22100</price>
+</vehicle>
+<vehicle year="1998" make="Hawker" model="Concord">
+<mileage>3550</mileage>
+<color>red</color>
+<price>$31995</price>
+</vehicle>
+<vehicle year="1996" make="Rainbow" model="Airbus">
+<mileage>49300</mileage>
+<color>green</color>
+<price>$25995</price>
+</vehicle>
+</vehicles>

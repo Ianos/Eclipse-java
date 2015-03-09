@@ -1,0 +1,58 @@
+<HTML>
+<HEAD><TITLE>DOM Demo</TITLE>
+<SCRIPT language="Javascript">
+var objDOM;
+objDOM=new ActiveXObject("MSXML.DOMDocument");
+objDOM.async=false;
+objDOM.load("nodes_example.xml");
+// begin of code for navigating within the XML document
+var objCurrNode; //points to current node
+var objNamedNodeMap; //points to collection of all attributes
+// an initial output of the whole XML document...
+alert(objDOM.xml);
+objCurrNode= objDOM.documentElement;
+alert(objCurrNode.nodeName);//the nodeName property of the objCurrNode
+alert(objCurrNode.nodeValue);
+objCurrNode= objDOM.documentElement.firstChild;
+alert(objCurrNode.nodeName);
+alert(objCurrNode.nodeValue);
+alert(objCurrNode.getAttribute("a2"));//method of objCurrNode
+objNamedNodeMap=objCurrNode.attributes;
+//we obtain the collection of all attributes
+alert(objNamedNodeMap.item(0).name);
+alert(objNamedNodeMap.item(0).value);
+alert(objNamedNodeMap.item(1).name);
+alert(objNamedNodeMap.item(1).value);
+objCurrNode= objDOM.documentElement.firstChild.firstChild;
+alert(objCurrNode.nodeName);
+alert(objCurrNode.nodeValue);
+objCurrNode= objDOM.documentElement.firstChild.firstChild.nextSibling;
+alert(objCurrNode.nodeName);
+alert(objCurrNode.nodeValue);
+objCurrNode= objDOM.documentElement.lastChild;
+alert(objCurrNode.nodeName);
+alert(objCurrNode.nodeValue);
+objCurrNode= objDOM.documentElement.lastChild.firstChild;
+alert(objCurrNode.nodeName);
+alert(objCurrNode.nodeValue);
+alert("End of the xml document tour.. ...xml document modification follows..");
+</SCRIPT>
+</HEAD>
+<SCRIPT language="Javascript">
+// here some examples for modifying the given XML document
+var objNewNode; //will refer to new tag
+var objNewText; //will refer to new text
+//use of objDOM methods for constructing the new ....
+objNewNode = objDOM.createElement("NEW_level2");
+//and assign value to the ext property of ...
+objNewNode.text="welcome to our NEW_level2"
+//, hang it to the existing tree (where?)
+objDOM.documentElement.lastChild.appendChild(objNewNode);
+//and again display everything in its new form
+alert(objDOM.xml);
+alert("End of the xml modifications.......");
+</SCRIPT>
+<BODY>
+<P>......bye !!!!.......</P>
+</BODY>
+</HTML>
